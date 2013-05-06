@@ -380,6 +380,10 @@ ul.nav-components li a {
     padding-left: 20px;
   }
 
+  .docs-jumbo {
+    padding-bottom: 150px;
+  }
+
   .docs-header .title {
     display: block;
     width: 100%;
