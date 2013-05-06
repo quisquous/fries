@@ -230,7 +230,7 @@ ul.nav-components li a {
 .twitter-share-button,
 .twitter-share-button:hover,
 .twitter-share-button:active {
-  padding: 0;
+  padding: 0 !important;
   border: none;
   border-radius: 0;
   background: none !important;
