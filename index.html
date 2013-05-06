@@ -312,7 +312,15 @@
           <p class="section-description">Usage and notes</p>
         </div>
         <p>Fries uses <a href="http://cubiq.org/iscroll-4">iScroll 4</a> for its scroll bars and it is really easy to use.</p>
-        <p>Just add the "scroll" id to the container that you want to attach iScroll to and voila, a sexy scroll bar in your prototype.</p>
+        <p>Just add the "scroll" id to the container that you want to attach iScroll to and voila, a sexy scroll bar in your prototype.<p>
+
+<pre class="prettyprint informational">
+// Attaches iScroll to element with id "scroll"
+scroller = new iScroll('scroll', {
+  fadeScrollbar: true,
+  hideScrollbar: true
+});
+</pre>
         
         <section id="iscroll">
           <h3 class="component-title">Using iScroll in lists</h3>
