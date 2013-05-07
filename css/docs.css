@@ -54,8 +54,15 @@ ul.actions li a:active { color: #0099cc; }
   height: 48px;
 }
 
+.logo {
+  margin-top: 8px;
+}
+
 .title a {
   color: #fff;
+  margin-left: 5px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .docs-header ul {
