@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="./lib/css/content.css">
   <link rel="stylesheet" href="./lib/css/buttons.css">
   <link rel="stylesheet" href="./lib/css/lists.css">
+  <link rel="stylesheet" href="./lib/css/forms.css">
+  <link rel="stylesheet" href="./lib/css/spinners.css">
 
   <link rel="stylesheet" href="css/icomoon.css">
   <link rel="stylesheet" href="css/docs.css">
@@ -29,6 +31,9 @@
   <script src="./lib/js/iscroll.js"></script>
   <script src="js/prettify.js"></script>
   <script src="js/docs.js"></script>
+
+  <script src="./lib/js/action-bars.js"></script>
+  <script src="./lib/js/spinners.js"></script>
 
   <script type="text/javascript">
 
@@ -44,7 +49,7 @@
 
   </script>
 </head>
-<body>
+<body ontouchstart="">
 
   <header class="action-bar outer-wrapper docs-header">
     <div class="inner-wrapper">
@@ -52,7 +57,7 @@
       <ul id="main-nav" class="actions pull-right">
         <li class="nav-item"><a href="#getting-started">Getting started</a></li>
         <li class="nav-item">
-          <a href="#components" class="toggle-spinner">Components</a>
+          <a href="#components" class="toggle-nav">Components</a>
           <ul class="nav-components">
             <li><a href="#action-bar">Action bars</a></li>
             <li><a href="#tabs">Tabs</a></li>
@@ -184,20 +189,42 @@
 
         <section id="action-buttons" class="component">
           <h3 class="component-title">Action buttons</h3>
-          <p class="component-description">Action bars can also have buttons in them. Currently, you can only add a maximum of two (2) buttons to the action bar.</p>
+          <p class="component-description">Action bars can also have buttons in them.</p>
 
 <pre class="prettyprint">
-&lt;header class="action-bar"&gt;
+&lt;header class="action-bar fixed-top"&gt;
   &lt;a href="#" class="app-icon action"&gt;
     &lt;i class="icon-home"&gt;&lt;/i&gt;
   &lt;/a&gt;
   &lt;h1 class="title"&gt;Action Buttons&lt;/h1&gt;
   &lt;ul class="actions pull-right"&gt;
-    &lt;li&gt;&lt;a href="#" class="action"&gt;&lt;i class="icon-search"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="#" class="action"&gt;&lt;i class="icon-settings"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="action" title="Search"&gt;&lt;i class="icon-search"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="action" title="Settings"&gt;&lt;i class="icon-settings"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/header&gt;
 </pre>
+        </section>
+
+        <section id="action-overflows" class="component">
+          <h3 class="component-title">Action overflows</h3>
+          <p class="component-description">You can only add a maximum of two (2) action buttons to the action bar when the device width is less than 480 pixels. This is where action overflows come in.</p>
+          <p class="component-description">Action overflows automatically convert action buttons into a <a href="#spinners">Spinner</a> when there are more than two buttons in your action bar.</p>
+
+<pre class="prettyprint">
+&lt;header class="action-bar fixed-top"&gt;
+  &lt;a href="#" class="app-icon action"&gt;
+    &lt;i class="icon-home"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;h1 class="title"&gt;Action Buttons&lt;/h1&gt;
+  &lt;ul class="actions pull-right"&gt;
+    &lt;li&gt;&lt;a href="#" class="action" title="Search"&gt;&lt;i class="icon-search"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="action" title="Copy"&gt;&lt;i class="icon-copy"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="action" title="Cut"&gt;&lt;i class="icon-scissors"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="action" title="Settings"&gt;&lt;i class="icon-settings"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/header&gt;
+</pre>
+
         </section>
 
 
@@ -409,9 +436,18 @@ scroller = new iScroll('scroll', {
     <div class="galaxy-content">
       <div id="galaxy-window" class="galaxy-window">
 
+        <!--
         <div class="splash">
           <h1>Fries</h1>
           <p>Scroll down to see me in action</p>
+        </div>
+        -->
+        <div class="inset content">
+          <form class="form">
+
+            <input type="text" class="input-text holo-dark" />
+
+          </form>
         </div>
 
       </div>

@@ -67,7 +67,12 @@ ul.actions li {
 }
 
 ul.actions {
+  float: right;
   list-style: none;
+}
+
+ul.actions li {
+  float: left;
 }
 
 .action {
@@ -76,6 +81,7 @@ ul.actions {
 }
 .action:active {
   background-color: rgba(51, 181, 229, 0.5);
+  z-index: 1;
 }
 
 .action [class*="icon-"] {
@@ -87,3 +93,45 @@ ul.actions {
   color: #999;
   text-align: center;
 }
+
+.action-overflow {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+}
+.action-overflow-hidden {
+  display: none;
+}
+.action-overflow-icon {
+  cursor: pointer;
+  padding: 22px 22px 21px 21px;
+  float: left;
+}
+.action-overflow-icon span {
+  position: relative;
+  z-index: 0;
+}
+.action-overflow-icon span,
+.action-overflow-icon span:before,
+.action-overflow-icon span:after {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: #999;
+}
+.action-overflow-icon span:before,
+.action-overflow-icon span:after {
+  position: absolute;
+  content: '';
+  left: 0;
+}
+.action-overflow-icon span:before {
+  top: -9px;
+}
+.action-overflow-icon span:after {
+  top: 9px;
+}
+
+.action-overflow-icon:active span {
+  
+};

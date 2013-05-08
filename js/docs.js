@@ -1,5 +1,7 @@
 $(function() {
 
+  window.debug = true;
+
   var scroller;
   var $win;
   var $doc;
@@ -25,7 +27,7 @@ $(function() {
     $doc = $(document);
     $bod = $(document.body);
 
-    $toggleSpinner = $('.toggle-spinner');
+    $toggleSpinner = $('.toggle-nav');
     $navComponents = $('.nav-components');
     
     galaxy = galaxy || $('.galaxy');
@@ -39,6 +41,7 @@ $(function() {
 
     checkDesktopContent();
     calculateScroll();
+    checkActionOverflow();
 
     if (!eventListeners) addEventListeners();
   }
@@ -80,6 +83,8 @@ $(function() {
 
     $(window).on('scroll', calculateScroll);
     $(window).on('scroll', attachIScroll);
+    // For documentation purposes. Remove this on production
+    $(window).on('scroll', checkActionOverflow);
   }
 
   var checkDesktopContent = function () {

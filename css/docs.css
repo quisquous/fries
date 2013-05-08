@@ -127,7 +127,7 @@ ul.nav-components li a {
   box-sizing: border-box;
 }
 
-.toggle-spinner:after {
+.toggle-nav:after {
   content: '';
   position: absolute;
   right: 0;
