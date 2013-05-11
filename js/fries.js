@@ -1,3 +1,6 @@
+/**
+ * Action bars
+ */
 !function () {
 
   // Action overflow
@@ -11,7 +14,10 @@
     // Clean up the existing action overflows
     while (c--) cleanUp[c].remove();
 
-    if (window.innerWidth <= 480) {
+    // Note: debug variable is to true for docs purposes only!
+    // Remove it on when you're using Fries on your prototype
+    var debug = true;
+    if (window.innerWidth <= 480 || debug == true) {
       
       // Iterate over all action bars
       while (a--) {
@@ -76,5 +82,43 @@
   
   window.addEventListener('resize', checkActionOverflow);
   window.addEventListener('load', checkActionOverflow);
+
+}();
+
+/**
+ * Spinners
+ */
+!function(){
+
+  window.attachSpinnerEvents = function () {
+
+    var spinners = document.querySelectorAll('.toggle-spinner'),
+      i = spinners.length;
+
+    while (i--) {
+      var s = spinners[i];
+      
+      s.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (e.target.nodeName === 'I') {
+          e.target.parentNode.nextSibling.classList.toggle('active');  
+          return;
+        }
+
+        e.target.nextSibling.classList.toggle('active');
+      });
+    }
+
+    // Close spinner event handler
+    document.addEventListener('click', function (e) {
+      var els = document.querySelectorAll('.spinner'),
+      o = els.length;
+      while (o--) els[o].classList.remove('active');
+    });
+  }
+  
+  attachSpinnerEvents();
 
 }();
