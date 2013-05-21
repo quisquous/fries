@@ -115,6 +115,19 @@ ul.actions li .action {
   z-index: 1;
 }
 
+.action.page-action {
+  position: relative;
+}
+.action.page-action:after {
+  position: absolute;
+  content: '';
+  right: -1px;
+  top: 12px;
+  width: 1px;
+  height: 24px;
+  background-color: #333;
+}
+
 .action [class*="icon-"] {
   float: left;
   display: inline-block;
@@ -129,12 +142,13 @@ ul.actions li .action {
 .action .action-title {
   float: left;
   display: inline-block;
-  margin: 0 10px 0 5px;
+  margin: 0 25px 0 5px;
   height: 32px;
   color: #999;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
-  line-height: 36px;
+  line-height: 32px;
+  font-weight: bold;
 }
 
 .action-overflow {
