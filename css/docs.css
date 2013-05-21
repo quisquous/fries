@@ -54,6 +54,23 @@ ul.actions li a:active { color: #0099cc; }
   height: 48px;
 }
 
+.content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  -webkit-transition-property: top, bottom;
+          transition-property: top, bottom;
+  -webkit-transition-duration: .2s, .2s;
+          transition-duration: .2s, .2s;
+  -webkit-transition-timing-function: linear, linear;
+          transition-timing-function: linear, linear;
+  -webkit-overflow-scrolling: touch;
+  color: #fff;
+}
+
 .logo {
   margin-top: 8px;
 }
@@ -144,7 +161,6 @@ ul.nav-components li a {
 }
 
 .docs-jumbo {
-  height: 500px;
   padding-bottom: 40px;
 }
 
@@ -190,15 +206,15 @@ ul.nav-components li a {
   color: #777;
 }
 
-.docs ol {
+.docs > ol {
   font-size: 18px;
   font-weight: bold;
 }
-.docs ol li {
+.docs > ol li {
   margin: 0 0 20px 36px;
 }
 
-.docs ol li h3 {
+.docs > ol li h3 {
   font-size: 18px;
   line-height: 1.5em;
 }
@@ -245,6 +261,8 @@ ul.nav-components li a {
 }
 
 
+
+
 .galaxy {
   position: relative;
   top: 20px;
@@ -268,10 +286,7 @@ ul.nav-components li a {
 .galaxy [class*="action-bar"],
 .galaxy [class*="tab-"],
 .galaxy .content {
-  position: absolute;
-} {
-  position: absolute;
-
+  position: absolute !important;
 }
 
 .galaxy-fixed {
@@ -283,6 +298,25 @@ ul.nav-components li a {
   margin-left: 125px;
 }
 
+.galaxy-fixed iframe,
+.galaxy-fixed .page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#stack-demo {
+  display: none;
+}
+
+/* Override framework so that horizontal scrollbars are not visible */
+.content {
+  overflow-x: hidden !important;
+}
 
 
 /* Offset the position of each section for anchor scrolling
@@ -295,11 +329,18 @@ ul.nav-components li a {
   padding: 90px 0 300px;
 }
 
+#phonegap-integration {
+  padding: 90px 0 300px;
+}
+
 #components {
   padding: 300px 0 0;
 }
 #components .section-header {
   padding-bottom: 300px;
+}
+#contributing {
+  padding: 100px 0 300px;
 }
 #credits {
   padding: 0 0 260px;
@@ -327,6 +368,15 @@ ul.nav-components li a {
   left: 0;
   padding: 160px 40px;
   background: #222;
+  z-index: 1;
+  opacity: 1;
+  -webkit-transition: all 0.2s ease-out;
+          transition: all 0.2s ease-out;
+}
+.splash.hidden {
+  opacity: 0;
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
 }
 
 .splash h1 {
@@ -343,6 +393,12 @@ ul.nav-components li a {
   line-height: 1.3em;
 }
 
+
+.component-example {
+  display: none;
+}
+
+
 /* Media queries
  */
 
@@ -354,6 +410,11 @@ ul.nav-components li a {
   .docs-header-text {
     width: 320px;
     padding-top: 160px;
+  }
+
+
+  .docs-header-text a {
+    float: left;
   }
 
   [class*="button"] + [class*="button"] {
@@ -380,6 +441,10 @@ ul.nav-components li a {
 }
 
 @media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
   
   .inner-wrapper {
     width: auto;
@@ -402,7 +467,12 @@ ul.nav-components li a {
   }
 
   .docs-jumbo {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #E2E2E2;
+    margin: auto 20px;
+  }
+  .docs-jumbo .inner-wrapper {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .social {
@@ -422,11 +492,13 @@ ul.nav-components li a {
   /* Replace all hacky padding that we added */
   #introduction,
   #getting-started,
+  #phonegap-integration,
   #components,
   #credits,
   #thanks,
   #using-iscroll,
-  #page-setup {
+  #page-setup,
+  #contributing {
     padding: 20px 0 60px;
     border-bottom: 1px solid #e2e2e2;
   }
@@ -437,6 +509,7 @@ ul.nav-components li a {
 
   #credits {
     padding-bottom: 100px;
+    border-bottom: none;
   }
 
   .docs,
@@ -446,7 +519,7 @@ ul.nav-components li a {
   }
 
   .docs {
-    margin-top: 40px;
+    margin: 40px 0;
   }
 
   .docs-header-text {
@@ -461,10 +534,39 @@ ul.nav-components li a {
 
   .component {
     width: auto;
-    padding: 0 0 20px;
+    padding: 120px 0 20px;
   }
 
   .galaxy-fixed {
     display: none;
+  }
+
+  .component-example {
+    position: relative;
+    display: block;
+    padding: 20px 0;
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+  .component-example-fullbleed {
+    
+  }
+  .component .prettyprint {
+    /*margin-top: 60px;*/
+  }
+
+  .component-example .page {
+    position: relative;
+  }
+
+  .component-example .action-bar,
+  .component-example .tab-fixed,
+  .component-example .action-bar.fixed-top,
+  .component-example .action-bar.fixed-bottom {
+    position: initial;
+  }
+
+  .black-bg {
+    background-color: #111;
   }
 }

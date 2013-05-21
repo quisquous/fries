@@ -42,7 +42,6 @@ $(function() {
     checkDesktopContent();
     calculateScroll();
     checkActionOverflow();
-    attachSpinnerEvents();
 
     if (!eventListeners) addEventListeners();
   }
@@ -65,8 +64,21 @@ $(function() {
     }, 0);
   }
 
+  var hideContainer = function (target) {
+    var target = $(target);
+    target.addClass('hidden');
+    target.on('webkitTransitionEnd', function () {
+      target.hide();
+    });
+  };
+
   var addEventListeners = function () {
     eventListeners = true;
+
+    $('.splash').on('click', function (e) {
+      e.preventDefault();
+      hideContainer(this);
+    });
     
     galaxy.on('click', function (e) {
       e.preventDefault();
@@ -83,17 +95,15 @@ $(function() {
     });
 
     $(window).on('scroll', calculateScroll);
-    $(window).on('scroll', attachIScroll);
     $(window).on('scroll', checkActionOverflow);
-    $(window).on('scroll', attachSpinnerEvents);
   }
 
   var checkDesktopContent = function () {
     windowWidth = $(window).width();
     if (windowWidth <= 768) {
-      var content = $('.content')
+      var content = $('.page');
       if (content.length > 1) {
-        $(content[0]).remove()
+        $(content[0]).remove();
       }
     }
   }
@@ -115,8 +125,6 @@ $(function() {
         contentSectionItem = $(contentSection[l])
         contentSectionItem.addClass('active')
 
-        console.log(contentSectionItem);
-
         if(contentSectionItem.attr('id')) {
           galaxy.attr("id", contentSectionItem.attr('id') + "InPhone");
         } else {
@@ -125,13 +133,20 @@ $(function() {
         if (!contentSectionItem.hasClass('informational')) {
           updateContent(contentSectionItem.find('.prettyprint').not('.js').text())
         }
-        break
+        break;
       }
     }
   }
 
   var updateContent = function (content) {
     $('#galaxy-window').html(content);
+    var replay = $('#replay');
+    if (replay.length > 0) {
+      replay.on('click', function (e) {
+        e.preventDefault();
+        hideContainer(this);
+      });
+    }
   }
 
   $(window).on('load resize', initialize);

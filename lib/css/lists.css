@@ -2,26 +2,33 @@
   display: block;
   list-style: none;
 }
-
+/*
 .list.inset {
   padding: 0 20px;
 }
+*/
 
 .list li {
   border-top: 1px solid #424242;
   line-height: 38px;
   padding: 5px;
   box-sizing: border-box;
+  color: #fff;
+}
+
+.list li a.list-item:active {
+  background-color: rgba(51, 181, 229, 0.5);
 }
 
 .list li.list-divider {
   border-top: none;
   border-bottom: 2px solid #595959;
   line-height: 18px;
-  font-size: 10px;
-  font-weight: normal;
+  font-size: 11px;
+  font-weight: bold;
   text-transform: uppercase;
   padding: 5px 5px 3px;
+  margin-top: 5px;
   color: #ccc;
 }
 
@@ -50,13 +57,15 @@
   font-weight: normal;
   line-height: 40px;
   height: 32px;
+  color: #fff;
 }
+/* !important added for documentation purposes only */
 .list-item-two-lines p {
-  font-size: 12px;
-  line-height: 12px;
-  text-overflow: ellipsis;
-  color: #bbb;
-  height: 16px;
+  font-size: 12px !important;
+  line-height: 12px !important;
+  text-overflow: ellipsis !important;
+  color: #bbb !important;
+  height: 16px !important;
 }
 
 .list-item-multi-line h3 {
@@ -64,12 +73,13 @@
   font-weight: normal;
   line-height: 40px;
   height: 32px;
+  color: #fff;
 }
 .list-item-multi-line p {
-  font-size: 12px;
-  line-height: 1.2em;
-  color: #bbb;
-  padding-bottom: 8px;
+  font-size: 12px !important;
+  line-height: 1.2em !important;
+  color: #bbb !important;
+  padding-bottom: 8px !important;
 }
 
 
