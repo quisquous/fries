@@ -3,6 +3,6 @@
   "description": "Fries Android prototyping framework, repackaged for Meteor",
   "homepage": "https://github.com/quisquous/meteor-fries",
   "author": "Adrienne Walker",
-  "version": "0.1.0",
+  "version": "1.0.0a",
   "git": "https://github.com/quisquous/meteor-fries.git"
 }
